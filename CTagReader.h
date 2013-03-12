@@ -6,10 +6,10 @@
 #include <time.h>
 #include <sigc++/sigc++.h>
 
-class CRFIDtagreader
+class CTagReader
 {	 
 	private:
-		int ok;				// status: 0=OK
+		bool ok;			// status
 		int fd;				// file descriptor for the serial device
 		time_t start;		// start time: 0 on construction and after reset_timer()
 		time_t seconds;		// seconds after start
@@ -17,11 +17,12 @@ class CRFIDtagreader
 		std::string error;	// description of last error
 	
 	public:
-		CRFIDtagreader(); // open serial ports, starts timer
+		CTagReader(); // open serial ports, starts timer
 		void reset_timer();
 		void run();
+		void stop();
 		
-		int is_ok() { return ok; };
+		bool is_ok() { return ok; };
 		std::string get_id() { return id; };		// identity read
 		time_t get_seconds() { return seconds; };	// time when readseconds after start
 		
