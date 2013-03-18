@@ -1,10 +1,9 @@
 //
-// A class to read RFID tags and raise a signal when one come in.
-// Uses libsigc++ for signal behaviour.
+// A class to read RFID tags and allow descendent behaviour to be
+// specified when one come in.
 //
 #include <string>
 #include <time.h>
-#include <sigc++/sigc++.h>
 
 class CTagReader
 {	 
@@ -28,5 +27,5 @@ class CTagReader
 		
 		std::string get_error();	// description of last error
 		
-		sigc::signal<void> signal_detected;
+		virtual void on_tag() {};		// function called when each tag is read
 };

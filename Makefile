@@ -1,9 +1,9 @@
 CXX=g++
-INCLUDES=-I/usr/include/sigc++-2.0 -I/usr/lib/arm-linux-gnueabihf/sigc++-2.0/include
+INCLUDES=
 CPPFLAGS=-Wall $(INCLUDES)
 
 objects = CTagReader.o CTagData.o
-libraries = -lwiringPi -lsigc-2.0
+libraries = -lwiringPi
 
 all : tagmap tagtimer
 

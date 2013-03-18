@@ -7,7 +7,7 @@
 //		writing times to standard output and a file.
 //		Use Ctrl-C to stop. Note that the & disconnects the program
 //		from the terminal so that you can issue a tail -f command
-//		on the output (if you want to see what's happening). 
+//		on the output, if you want to see what's happening. 
 //
 #include <stdlib.h>
 #include <vector>
@@ -68,7 +68,7 @@ int main()
 	cout << "Ready to time laps for " << reader.tags.count() << " known runners." << endl;
 	cout << "To see what's happening use tail -f " << OUTFILE << endl;
 	
-    reader.signal_detected.connect( sigc::mem_fun(reader, &CTimerReader::on_tag) );
+    //reader.signal_detected.connect( sigc::mem_fun(reader, &CTimerReader::on_tag) );
     reader.run();
     
     return 0;

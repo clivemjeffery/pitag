@@ -62,7 +62,7 @@ void CTagReader::run()
 			id = rx.substr(1,12);	
 			time_t t = time(NULL);
 			seconds = t - start;
-			signal_detected.emit();
+			on_tag();
 		}
 	}
 };
